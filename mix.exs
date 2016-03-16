@@ -27,6 +27,8 @@ defmodule PhoenixTemplateHelper.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:phoenix, "~> 1.1.4"},
+    ]
   end
 end
