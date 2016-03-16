@@ -5,9 +5,12 @@ defmodule PhoenixTemplateHelper.Mixfile do
     [app: :phoenix_template_helper,
      version: "0.0.1",
      elixir: "~> 1.2",
+     description: "Template helpers for Phoenix applications",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps,
+     package: package
+   ]
   end
 
   # Configuration for the OTP application
@@ -30,5 +33,13 @@ defmodule PhoenixTemplateHelper.Mixfile do
     [
       {:phoenix, "~> 1.1.4"},
     ]
+  end
+
+  defp package do
+    [
+    files: ["lib", "priv", "mix.exs", "README*", "LICENSE*"],
+    maintainers: ["Ashley Ellis"],
+    licenses: ["Apache 2.0"],
+    links: %{"Github" => "https://github.com/thoughtbot/phoenix_template_helper"}]
   end
 end
