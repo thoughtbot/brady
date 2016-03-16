@@ -12,8 +12,14 @@ defmodule PhoenixTemplateHelper do
     |> to_string
     |> String.split(".")
     |> List.last
-    |> String.downcase
     |> remove_controller
+    |> dasherize
+    |> String.downcase
+  end
+
+  defp dasherize(name) do
+    Regex.split(~r/(?=[A-Z])/, name)
+    |> Enum.join("-")
   end
 
   defp remove_controller(name)  do
