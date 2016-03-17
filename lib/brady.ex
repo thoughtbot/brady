@@ -1,6 +1,11 @@
 defmodule Brady do
   alias Phoenix.Controller
 
+  @doc """
+  Returns the controller name and controller-action name as a lowercase,
+  dasherized string.
+  Ex. CoolWidgetsController#show would be 'cool-widgets cool-widgets-show'"
+  """
   def body_class(conn) do
     controller_name = format_controller_name(conn)
     "#{controller_name} #{controller_name}-#{Controller.action_name(conn)}"
