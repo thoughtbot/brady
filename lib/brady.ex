@@ -5,9 +5,9 @@ defmodule Brady do
   Returns the controller name and controller-action name as a lowercase,
   dasherized string.
 
-  When the `conn` came from CoolWidgetsController#show
+  For example, when the `conn` came from CoolWidgetsController#show:
 
-    Brady.body_class(conn) => 'cool-widgets cool-widgets-show'"
+      Brady.body_class(conn) => 'cool-widgets cool-widgets-show'"
 
   """
   @spec body_class(%Plug.Conn{}) :: String.t
