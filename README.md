@@ -16,7 +16,7 @@ Add brady to your list of dependencies in `mix.exs`:
 
 ### Body Class
 
-The body_class method can be used like:
+The body_class function can be used like:
 
 `body class="<%= Brady.body_class @conn%>"`
 
