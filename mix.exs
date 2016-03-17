@@ -1,8 +1,8 @@
-defmodule PhoenixTemplateHelper.Mixfile do
+defmodule Brady.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :phoenix_template_helper,
+    [app: :brady,
      version: "0.0.1",
      elixir: "~> 1.2",
      description: "Template helpers for Phoenix applications",
@@ -40,6 +40,6 @@ defmodule PhoenixTemplateHelper.Mixfile do
     files: ["lib", "priv", "mix.exs", "README*", "LICENSE*"],
     maintainers: ["Ashley Ellis"],
     licenses: ["MIT"],
-    links: %{"Github" => "https://github.com/thoughtbot/phoenix_template_helper"}]
+    links: %{"Github" => "https://github.com/thoughtbot/brady"}]
   end
 end

@@ -1,16 +1,16 @@
-# PhoenixTemplateHelper
+# Brady
 
-PhoenixTemplateHelper provides helper functions for use within Phoenix templates.
+Brady provides helper functions for use within Phoenix templates.
 
 ## Usage
 
 ### Installation
 
-Add phoenix_template_helper to your list of dependencies in `mix.exs`:
+Add brady to your list of dependencies in `mix.exs`:
 
 ```
         def deps do
-          [{:phoenix_template_helper, "~> 0.0.1"}]
+          [{:brady, "~> 0.0.1"}]
         end
 ```
 
@@ -18,7 +18,7 @@ Add phoenix_template_helper to your list of dependencies in `mix.exs`:
 
 The body_class method can be used like:
 
-`body class="<%= PhoenixTemplateHelper.body_class @conn%>"`
+`body class="<%= Brady.body_class @conn%>"`
 
 This will produce a string including the controller name and controller-action
 name. For example, The WidgetsController#show action would produce:
@@ -31,11 +31,11 @@ See the [CONTRIBUTING] document.
 Thank you, [contributors]!
 
   [CONTRIBUTING]: CONTRIBUTING.md
-  [contributors]: https://github.com/thoughtbot/phoenix_template_helper/graphs/contributors
+  [contributors]: https://github.com/thoughtbot/brady/graphs/contributors
 
 ## License
 
-PhoenixTemplateHelper is Copyright (c) 2015 thoughtbot, inc.
+Brady is Copyright (c) 2015 thoughtbot, inc.
 It is free software, and may be redistributed
 under the terms specified in the [LICENSE] file.
 
@@ -45,7 +45,7 @@ under the terms specified in the [LICENSE] file.
 
 ![thoughtbot](https://thoughtbot.com/logo.png)
 
-PhoenixTemplateHelper is maintained and funded by thoughtbot, inc.
+Brady is maintained and funded by thoughtbot, inc.
 The names and logos for thoughtbot are trademarks of thoughtbot, inc.
 
 We love open source software!

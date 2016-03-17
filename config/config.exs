@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :phoenix_template_helper, key: :value
+#     config :brady, key: :value
 #
 # And access this configuration in your application as:
 #
-#     Application.get_env(:phoenix_template_helper, :key)
+#     Application.get_env(:brady, :key)
 #
 # Or configure a 3rd-party app:
 #

@@ -1,4 +1,4 @@
-defmodule PhoenixTemplateHelper do
+defmodule Brady do
   alias Phoenix.Controller
 
   def body_class(conn) do
