@@ -39,7 +39,7 @@ defmodule PhoenixTemplateHelper.Mixfile do
     [
     files: ["lib", "priv", "mix.exs", "README*", "LICENSE*"],
     maintainers: ["Ashley Ellis"],
-    licenses: ["Apache 2.0"],
+    licenses: ["MIT"],
     links: %{"Github" => "https://github.com/thoughtbot/phoenix_template_helper"}]
   end
 end
