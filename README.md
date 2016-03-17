@@ -10,7 +10,7 @@ Add brady to your list of dependencies in `mix.exs`:
 
 ```
         def deps do
-          [{:brady, "~> 0.0.1"}]
+          [{:brady, "~> 0.0.2"}]
         end
 ```
 
