@@ -4,8 +4,13 @@ defmodule Brady do
   @doc """
   Returns the controller name and controller-action name as a lowercase,
   dasherized string.
-  Ex. CoolWidgetsController#show would be 'cool-widgets cool-widgets-show'"
+
+  When the `conn` came from CoolWidgetsController#show
+
+    Brady.body_class(conn) => 'cool-widgets cool-widgets-show'"
+
   """
+  @spec body_class(%Plug.Conn{}) :: String.t
   def body_class(conn) do
     controller_name = format_controller_name(conn)
     "#{controller_name} #{controller_name}-#{Controller.action_name(conn)}"
