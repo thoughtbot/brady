@@ -20,7 +20,7 @@ Add brady to your list of dependencies in `mix.exs`:
 
 The body_class function can be used like:
 
-`body class="<%= Brady.body_class @conn%>"`
+`body class="<%= Brady.body_class @conn %>"`
 
 This will produce a string including the controller name and controller-action
 name. For example, The WidgetsController#show action would produce:
