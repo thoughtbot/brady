@@ -33,7 +33,7 @@ defmodule Brady.Mixfile do
     [
       {:earmark, "~>0.1", only: :dev},
       {:ex_doc, "~> 0.11", only: :dev},
-      {:phoenix, "~> 1.1.4"},
+      {:phoenix, "~> 1.2"},
     ]
   end
 
