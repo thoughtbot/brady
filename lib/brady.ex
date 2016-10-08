@@ -10,13 +10,14 @@ defmodule Brady do
       Brady.body_class(conn) => 'cool-widgets cool-widgets-show'"
 
   """
-  @spec body_class(%Plug.Conn{}) :: String.t
-  def body_class(conn = %Plug.Conn{private: %{phoenix_controller: _}}) do
-    controller_name = format_controller_name(conn)
+  @spec body_class(%Plug.Conn{}, %{}) :: String.t
+  def body_class(conn, opts \\ %{})
+  def body_class(conn = %Plug.Conn{private: %{phoenix_controller: _}}, opts) do
+    controller_name = format_controller_name(conn, opts[:suffix])
     "#{format_path(conn)} #{controller_name} #{controller_name}-#{Controller.action_name(conn)}"
     |> String.trim
   end
-  def body_class(_) do
+  def body_class(_, _) do
     ""
   end
 
@@ -31,6 +32,9 @@ defmodule Brady do
       Integer.parse(item) == :error
     end
   end
+
+  defp format_controller_name(conn, nil), do: format_controller_name(conn)
+  defp format_controller_name(conn, suffix), do: format_controller_name(conn) <> "-#{suffix}"
 
   defp format_controller_name(conn) do
     conn
