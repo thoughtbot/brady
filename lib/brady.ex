@@ -11,10 +11,13 @@ defmodule Brady do
 
   """
   @spec body_class(%Plug.Conn{}) :: String.t
-  def body_class(conn) do
+  def body_class(conn = %Plug.Conn{private: %{phoenix_controller: _}}) do
     controller_name = format_controller_name(conn)
     "#{format_path(conn)} #{controller_name} #{controller_name}-#{Controller.action_name(conn)}"
     |> String.trim
+  end
+  def body_class(_) do
+    ""
   end
 
   defp format_path(conn) do

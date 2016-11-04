@@ -33,6 +33,12 @@ defmodule BradyTest do
     assert Brady.body_class(conn) == "more-page more-page-index"
   end
 
+  test "returns an empty string if no controller is present" do
+    conn = %Conn{private: %{}}
+
+    assert Brady.body_class(conn) == ""
+  end
+
   describe "path" do
     test "it includes the path in the class name" do
       conn = %Conn{
