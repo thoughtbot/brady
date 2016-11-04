@@ -13,7 +13,20 @@ defmodule Brady do
   @spec body_class(%Plug.Conn{}) :: String.t
   def body_class(conn) do
     controller_name = format_controller_name(conn)
-    "#{controller_name} #{controller_name}-#{Controller.action_name(conn)}"
+    "#{format_path(conn)} #{controller_name} #{controller_name}-#{Controller.action_name(conn)}"
+    |> String.trim
+  end
+
+  defp format_path(conn) do
+    conn.path_info
+    |> remove_numbers
+    |> Enum.join("-")
+  end
+
+  defp remove_numbers(path_list) do
+    Enum.filter path_list, fn (item) ->
+      Integer.parse(item) == :error
+    end
   end
 
   defp format_controller_name(conn) do
