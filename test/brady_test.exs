@@ -21,4 +21,14 @@ defmodule BradyTest do
 
     assert Brady.body_class(conn) == "awesome-page awesome-page-index"
   end
+
+  test "body_class returns namespaced controller and action" do
+    conn = %{
+      private: %{
+        phoenix_action: :index,
+        phoenix_controller: Test.More.PageController
+      }}
+
+    assert Brady.body_class(conn) == "more-page more-page-index"
+  end
 end

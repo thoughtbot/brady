@@ -21,7 +21,8 @@ defmodule Brady do
     |> Controller.controller_module
     |> to_string
     |> String.split(".")
-    |> List.last
+    |> Enum.slice(2..-1)
+    |> Enum.join("")
     |> remove_controller
     |> dasherize
     |> String.downcase
