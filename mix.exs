@@ -4,7 +4,7 @@ defmodule Brady.Mixfile do
   def project do
     [app: :brady,
      version: "0.0.4",
-     elixir: "~> 1.2",
+     elixir: "~> 1.3",
      description: "Template helpers for Phoenix applications",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
