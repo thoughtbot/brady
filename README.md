@@ -10,12 +10,12 @@ Brady provides helper functions for use within Phoenix templates.
 
 Add brady to your list of dependencies in `mix.exs`:
 
-```
-        def deps do
-          [
-            {:brady, "~> 0.0.4"},
-          ]
-        end
+```elixir
+  def deps do
+    [
+      {:brady, "~> 0.0.4"},
+    ]
+  end
 ```
 
 ### Body Class
