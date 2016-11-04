@@ -39,7 +39,7 @@ defmodule Brady.Mixfile do
 
   defp package do
     [
-    files: ["lib", "priv", "mix.exs", "README*", "LICENSE*"],
+    files: ["lib", "mix.exs", "README*", "LICENSE*"],
     maintainers: ["Ashley Ellis"],
     licenses: ["MIT"],
     links: %{"Github" => "https://github.com/thoughtbot/brady"}]
