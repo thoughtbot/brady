@@ -29,6 +29,17 @@ name. For example, The WidgetsController#show action would produce:
 
 `widgets widgets-show`
 
+### Inline SVG
+
+The inline_svg function can be used like:
+
+`Brady.inline_svg("foo", class: "bar")`
+
+This will embed the html safe raw svg in your markup, with any CSS attributes
+that you've specified.
+
+` {:safe, "<svg class=\"foo\" data-role=\"bar\" height=\"100\" width=\"100\"><desc>This is a test svg</desc><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"black\" stroke-width=\"3\" fill=\"red\"></circle></svg>"}`
+
 ## Contributing
 
 See the [CONTRIBUTING] document.
