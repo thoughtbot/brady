@@ -62,4 +62,16 @@ defmodule BradyTest do
       assert Brady.body_class(conn) == "admin-user user user-show"
     end
   end
+
+  describe "inline_svg" do
+    test "it returns a runtime error if svg is not found" do
+      message = "No SVG found at web/static/svg/non_existant.svg"
+      assert_raise RuntimeError, message, fn ->
+        Brady.inline_svg("non_existant")
+      end
+    end
+
+    def html do
+    end
+  end
 end
