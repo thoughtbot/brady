@@ -34,7 +34,7 @@ name. For example, The WidgetsController#show action would produce:
 The inline_svg function works by passing in your SVG file name and, optionally,
 any CSS attributes you'd like to apply to the SVG.
 
-`Brady.inline_svg("foo", class: "bar")`
+`<%= Brady.inline_svg("foo", class: "bar") %>`
 
 This will embed the html safe raw SVG in your markup.
 
