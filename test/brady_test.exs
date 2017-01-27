@@ -64,11 +64,11 @@ defmodule BradyTest do
   end
 
   describe "inline_svg" do
-    test "it renders an html safe version of the svg" do
+    test "it renders an html safe version of the SVG" do
      assert Brady.inline_svg("test", class: "foo", "data-role": "bar") == test_svg
     end
 
-    test "it returns a runtime error if svg is not found" do
+    test "it returns a runtime error if SVG is not found" do
       message = "No SVG found at test/support/svg/non_existant.svg"
       assert_raise RuntimeError, message, fn ->
         Brady.inline_svg("non_existant")

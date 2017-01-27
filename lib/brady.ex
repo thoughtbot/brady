@@ -21,8 +21,8 @@ defmodule Brady do
   end
 
   @doc """
-  Embeds an html safe raw svg in the markup. Also takes an optional list of CSS
-  attributes and applies those to the svg.
+  Embeds an html safe raw SVG in the markup. Also takes an optional list of CSS
+  attributes and applies those to the SVG.
 
   Ex:
       Brady.inline_svg("test", class: "foo", "data-role": "bar") =>
