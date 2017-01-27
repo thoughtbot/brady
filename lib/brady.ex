@@ -55,7 +55,7 @@ defmodule Brady do
 
   defp static_path(file_name) do
     path = Application.get_env(:brady, :svg_path) || "web/static/svg"
-    "#{path}/#{file_name}.svg"
+    Path.join(path, "#{file_name}.svg")
   end
 
   defp format_path(conn) do
