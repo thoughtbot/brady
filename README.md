@@ -45,7 +45,7 @@ configure this in your config.exs
 
 ```elixir
   config :brady,
-    svg_path: "test/support/svg"
+    svg_path: "web/static/images"
 ```
 ## Contributing
 
