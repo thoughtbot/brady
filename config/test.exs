@@ -1,4 +1,4 @@
 use Mix.Config
 
-config :brady, :config,
+config :brady,
   svg_path: "test/support/svg"

@@ -31,15 +31,22 @@ name. For example, The WidgetsController#show action would produce:
 
 ### Inline SVG
 
-The inline_svg function can be used like:
+The inline_svg function works by passing in your SVG file name and, optionally,
+any CSS attributes you'd like to apply to the SVG.
 
 `Brady.inline_svg("foo", class: "bar")`
 
-This will embed the html safe raw SVG in your markup, with any CSS attributes
-that you've specified.
+This will embed the html safe raw SVG in your markup.
 
 ` {:safe, "<svg class=\"foo\" data-role=\"bar\" height=\"100\" width=\"100\"><desc>This is a test svg</desc><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"black\" stroke-width=\"3\" fill=\"red\"></circle></svg>"}`
 
+By default, it looks for files in `web/static/svg/#{file_name}.svg` but you can
+configure this in your config.exs
+
+```elixir
+  config :brady,
+    svg_path: "test/support/svg"
+```
 ## Contributing
 
 See the [CONTRIBUTING] document.

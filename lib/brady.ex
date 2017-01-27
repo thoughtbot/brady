@@ -54,7 +54,7 @@ defmodule Brady do
   end
 
   defp static_path(file_name) do
-    path = Application.get_env(:brady, :config)[:svg_path]
+    path = Application.get_env(:brady, :svg_path)
     if path do
       "#{path}/#{file_name}.svg"
     else
