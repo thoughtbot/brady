@@ -21,6 +21,13 @@ defmodule Brady do
   end
 
   @doc """
+  Embeds an html safe raw svg in the markup. Also takes an optional list of CSS
+  attributes and applies those to the svg.
+
+  Ex:
+      Brady.inline_svg("test", class: "foo", "data-role": "bar") =>
+      {:safe,
+       "<svg class=\"foo\" data-role=\"bar\" height=\"100\" width=\"100\"><desc>This is a test svg</desc><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"black\" stroke-width=\"3\" fill=\"red\"></circle></svg>"}
   """
   @spec inline_svg(String.t, keyword) :: String.t
   def inline_svg(file_name, options \\ []) do
