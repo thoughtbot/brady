@@ -38,7 +38,7 @@ any CSS attributes you'd like to apply to the SVG.
 
 This will embed the html safe raw SVG in your markup.
 
-` {:safe, "<svg class=\"bar\" height=\"100\" width=\"100\"><desc>This is a test svg</desc><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"black\" stroke-width=\"3\" fill=\"red\"></circle></svg>"}`
+`{:safe, ~s(<svg class="foo" data-role="bar" height="100" width="100"><desc>This is a test svg</desc><circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"></circle></svg>)}`
 
 By default, it looks for files in `web/static/svg/#{file_name}.svg` but you can
 configure this in your config.exs
