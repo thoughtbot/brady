@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.11.4">
-    <title>Brady – brady v0.0.5</title>
+    <title>Brady – brady v0.0.6</title>
     <link rel="stylesheet" href="dist/app-1e374caa3d.css" />
     <script src="dist/sidebar_items.js"></script>
   </head>
@@ -27,7 +27,7 @@
         brady
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.0.5
+        v0.0.6
       </h2>
     </div>
     
@@ -59,7 +59,7 @@
 
 
       <h1>
-        <small class="visible-xs">brady v0.0.5</small>
+        <small class="visible-xs">brady v0.0.6</small>
         Brady
         
         
@@ -89,6 +89,16 @@
   
     <div class="summary-synopsis"><p>Returns the controller name and controller-action name as a lowercase,
 dasherized string</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#inline_svg/2">inline_svg(file_name, options \\ [])</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Embeds an html safe raw SVG in the markup. Also takes an optional list of CSS
+attributes and applies those to the SVG</p>
 </div>
   
 </div>
@@ -136,6 +146,34 @@ dasherized string</p>
 dasherized string.</p>
 <p>For example, when the <code class="inline">conn</code> came from CoolWidgetsController#show:</p>
 <pre><code class="elixir">Brady.body_class(conn) =&gt; &#39;cool-widgets cool-widgets-show&#39;&quot;</code></pre>
+
+  </section>
+</div>
+<div class="detail" id="inline_svg/2">
+  <div class="detail-header">
+    <a href="#inline_svg/2" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">inline_svg(file_name, options \\ [])</span>
+      
+  </div>
+  
+    <div class="specs">
+      <h4 class="specs-title">Specs</h4>
+      <div class="specs-list">
+        
+          <pre><code class="elixir">inline_svg(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, keyword) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></code></pre>
+        
+      </div>
+    </div>
+  
+  <section class="docstring">
+    <p>Embeds an html safe raw SVG in the markup. Also takes an optional list of CSS
+attributes and applies those to the SVG.</p>
+<p>Ex:</p>
+<pre><code class="elixir">Brady.inline_svg(&quot;test&quot;, class: &quot;foo&quot;, &quot;data-role&quot;: &quot;bar&quot;) =&gt;
+{:safe,
+ &quot;&lt;svg class=&quot;foo&quot; data-role=&quot;bar&quot; height=&quot;100&quot; width=&quot;100&quot;&gt;&lt;desc&gt;This is a test svg&lt;/desc&gt;&lt;circle cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;40&quot; stroke=&quot;black&quot; stroke-width=&quot;3&quot; fill=&quot;red&quot;&gt;&lt;/circle&gt;&lt;/svg&gt;&quot;}</code></pre>
 
   </section>
 </div>
