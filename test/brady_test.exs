@@ -65,7 +65,7 @@ defmodule BradyTest do
 
   describe "inline_svg" do
     test "it renders an html safe version of the SVG" do
-     assert Brady.inline_svg("test", class: "foo", "data-role": "bar") == test_svg
+     assert Brady.inline_svg("test", class: "foo", "data-role": "bar") == test_svg()
     end
 
     test "it returns a runtime error if SVG is not found" do
@@ -75,7 +75,7 @@ defmodule BradyTest do
       end
     end
 
-    def test_svg(options \\ []) do
+    defp test_svg do
       {:safe,
        ~s(<svg class="foo" data-role="bar" height="100" width="100"><desc>This is a test svg</desc><circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"></circle></svg>)}
     end

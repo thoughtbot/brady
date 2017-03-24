@@ -87,12 +87,9 @@ defmodule Brady do
     |> Enum.join("-")
   end
 
+  @controller_string_length 10
   defp remove_controller(name)  do
     name
-    |> String.slice(0, String.length(name) - controller_string_length)
-  end
-
-  defp  controller_string_length  do
-    10
+    |> String.slice(0, String.length(name) - @controller_string_length)
   end
 end
