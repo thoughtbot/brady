@@ -39,6 +39,16 @@ defmodule BradyTest do
     assert Brady.body_class(conn) == ""
   end
 
+  test "body_class with suffix adds suffix to controller name" do
+    conn = %Conn{
+      private: %{
+        phoenix_action: :index,
+        phoenix_controller: Test.PostController
+      }}
+
+    assert Brady.body_class(conn, suffix: "page") == "post-page post-page-index"
+  end
+
   describe "path" do
     test "it includes the path in the class name" do
       conn = %Conn{
