@@ -83,7 +83,9 @@ defmodule Brady do
   end
 
   defp dasherize(name) do
-    Regex.split(~r/(?=[A-Z])/, name)
+    ~r/(?=[A-Z])/
+    |> Regex.split(name)
+    |> Enum.reject(&(&1 == ""))
     |> Enum.join("-")
   end
 
