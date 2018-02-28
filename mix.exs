@@ -24,6 +24,7 @@ defmodule Brady.Mixfile do
       {:ex_doc, "~> 0.11", only: :dev},
       {:floki, "~> 0.13"},
       {:phoenix, "~> 1.2"},
+      {:mime, "~> 1.2"}
     ]
   end
 

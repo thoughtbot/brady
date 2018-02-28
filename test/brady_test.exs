@@ -1,5 +1,6 @@
 defmodule BradyTest do
   use ExUnit.Case
+  import ExUnit.CaptureLog
   alias Plug.Conn
   doctest Brady
 
@@ -85,6 +86,16 @@ defmodule BradyTest do
     defp test_svg do
       {:safe,
        ~s(<svg class="foo" data-role="bar" height="100" width="100"><desc>This is a test svg</desc><circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"></circle></svg>)}
+    end
+  end
+
+  describe "data_uri/1" do
+    test "it returns a base64 encoded string of the given image" do
+      image = Path.expand("./test/support/test-small.png")
+
+      result = Brady.data_uri(image)
+
+      assert result == "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg=="
     end
   end
 end

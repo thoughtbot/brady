@@ -38,6 +38,25 @@ defmodule Brady do
     end
   end
 
+  @doc """
+  Encodes an image to base64-encoded data uri, compatible for img src attributes. Only recommended
+  for files less than 2kb
+
+  Ex:
+      Brady.data_uri("placeholder.gif")
+      # => "data:image/gif;base64,iVBORw0KGgoAAAA"
+  """
+  def data_uri(path) do
+    base64 =
+      path
+      |> File.read!
+      |> Base.encode64
+
+    mime = MIME.from_path(path)
+
+    "data:#{mime};base64,#{base64}"
+  end
+
   defp render_with_options(markup, []), do: {:safe, markup}
   defp render_with_options(markup, options) do
     markup
