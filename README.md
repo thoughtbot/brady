@@ -18,6 +18,12 @@ Add brady to your list of dependencies in `mix.exs`:
   end
 ```
 
+And configure it in `config.exs`:
+
+```elixir
+  config :brady, otp_app: :my_app
+```
+
 ### Body Class
 
 The body_class function can be used like:
@@ -40,13 +46,15 @@ This will embed the html safe raw SVG in your markup.
 
 `{:safe, ~s(<svg class="foo" data-role="bar" height="100" width="100"><desc>This is a test svg</desc><circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red"></circle></svg>)}`
 
-By default, it looks for files in `web/static/svg/#{file_name}.svg` but you can
+By default, it looks for files in `priv/static/svg/#{file_name}.svg` but you can
 configure this in your config.exs
 
 ```elixir
   config :brady,
+    otp_app: :my_app,
     svg_path: "web/static/images"
 ```
+
 ## Contributing
 
 See the [CONTRIBUTING] document.

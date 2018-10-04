@@ -3,6 +3,11 @@ defmodule BradyTest do
   alias Plug.Conn
   doctest Brady
 
+  setup do
+    Application.put_env(:brady, :otp_app, :brady)
+    Application.put_env(:brady, :svg_path, "../../../../test/support/svg")
+  end
+
   test "body_class returns controller and action" do
     conn = %Conn{
       private: %{
@@ -69,8 +74,10 @@ defmodule BradyTest do
     end
 
     test "it returns a runtime error if SVG is not found" do
-      message = "No SVG found at test/support/svg/non_existant.svg"
-      assert_raise RuntimeError, message, fn ->
+      assert_raise RuntimeError, ~r|No SVG found at|, fn ->
+        Brady.inline_svg("non_existant")
+      end
+      assert_raise RuntimeError, ~r|support/svg/non_existant.svg|, fn ->
         Brady.inline_svg("non_existant")
       end
     end
