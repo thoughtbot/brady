@@ -57,7 +57,14 @@ defmodule Brady do
       |> Path.expand()
       |> File.read!()
       |> Base.encode64()
+      |> maybe_warn_about_size(path)
 
+    mime = MIME.from_path(path)
+
+    "data:#{mime};base64,#{base64}"
+  end
+
+  defp maybe_warn_about_size(base64, path) do
     limit = Application.get_env(:brady, :inline_threshold, 2048)
 
     if String.length(base64) > limit do
@@ -68,9 +75,7 @@ defmodule Brady do
       """)
     end
 
-    mime = MIME.from_path(path)
-
-    "data:#{mime};base64,#{base64}"
+    base64
   end
 
   defp render_with_options(markup, []), do: {:safe, markup}
