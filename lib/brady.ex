@@ -41,17 +41,22 @@ defmodule Brady do
 
   @doc """
   Encodes an image to base64-encoded data uri, compatible for img src attributes. Only recommended
-  for files less than 2kb
+  for files less than 2kb. This threshold is configurable with mix config:
+
+      config :brady, inline_threshold: 10_240
 
   Ex:
       Brady.data_uri("placeholder.gif")
       # => "data:image/gif;base64,iVBORw0KGgoAAAA"
   """
   def data_uri(path) do
+    app_dir = Application.app_dir(Application.get_env(:brady, :otp_app))
     base64 =
-      path
-      |> File.read!
-      |> Base.encode64
+      [app_dir, "priv/static", path]
+      |> Path.join()
+      |> Path.expand()
+      |> File.read!()
+      |> Base.encode64()
 
     limit = Application.get_env(:brady, :inline_threshold, 2048)
 

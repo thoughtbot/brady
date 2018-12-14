@@ -91,7 +91,7 @@ defmodule BradyTest do
 
   describe "data_uri/1" do
     test "it returns a base64 encoded string of the given image" do
-      image = "./test/support/test-small.png"
+      image = test_asset_path("test/support/test-small.png")
 
       result = Brady.data_uri(image)
 
@@ -99,7 +99,7 @@ defmodule BradyTest do
     end
 
     test "it emits a warning when the file is more than 2kb by default" do
-      path = "./test/support/test-large.png"
+      path = test_asset_path("test/support/test-large.png")
 
       assert capture_log(fn ->
         Brady.data_uri(path)
@@ -112,7 +112,7 @@ defmodule BradyTest do
 
     test "it does not emit a warning when the file is less than configured inline threshold" do
       Application.put_env(:brady, :inline_threshold, 99999999)
-      path = "./test/support/test-large.png"
+      path = test_asset_path("test/support/test-large.png")
 
       refute capture_log(fn ->
         Brady.data_uri(path)
@@ -122,5 +122,9 @@ defmodule BradyTest do
 
       Application.delete_env(:brady, :inline_threshold)
     end
+  end
+
+  defp test_asset_path(path) do
+    "../../../../../../#{path}"
   end
 end
