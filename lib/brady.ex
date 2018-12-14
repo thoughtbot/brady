@@ -1,5 +1,6 @@
 defmodule Brady do
   alias Phoenix.Controller
+  require Logger
 
   @doc """
   Returns the controller name and controller-action name as a lowercase,
@@ -51,6 +52,16 @@ defmodule Brady do
       path
       |> File.read!
       |> Base.encode64
+
+    limit = Application.get_env(:brady, :inline_threshold, 2048)
+
+    if String.length(base64) > limit do
+      Logger.warn("""
+      Warning: The file "#{path}" is large and not recommended for inlining in templates. Please reconsider inlining this image, or increase the inline threshold by setting:
+
+      config :brady, inline_threshold: size_in_bytes
+      """)
+    end
 
     mime = MIME.from_path(path)
 
