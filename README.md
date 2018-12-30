@@ -35,6 +35,26 @@ name. For example, The WidgetsController#show action would produce:
 
 `widgets widgets-show`
 
+### Data URI
+
+To inline an image, you may use the `Brady.data_uri/1` function. Pass in the
+path relative to `priv/static` and Brady will read the file, base64 encode it, and
+return the data uri that is compatible to use within an `<img>` tag.
+
+For example:
+
+`<%= img_tag(Brady.data_uri("images/placeholder.gif"), alt: "Celery Man" %>`
+
+It's not recommended to inline images that are more than a few kilobytes in
+size. By default, Brady will emit a warning when inlining an image more than
+2kb. You can configure this yourself with Mix config:
+
+```elixir
+  config :brady,
+    otp_app: :my_app,
+    inline_threshold: 10_240
+```
+
 ### Inline SVG
 
 The inline_svg function works by passing in your SVG file name and, optionally,

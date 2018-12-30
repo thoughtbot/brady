@@ -1,5 +1,6 @@
 defmodule Brady do
   alias Phoenix.Controller
+  require Logger
 
   @doc """
   Returns the controller name and controller-action name as a lowercase,
@@ -36,6 +37,45 @@ defmodule Brady do
       {:ok, file} -> render_with_options(file, options)
       {:error, _} -> raise "No SVG found at #{path}"
     end
+  end
+
+  @doc """
+  Encodes an image to base64-encoded data uri, compatible for img src attributes. Only recommended
+  for files less than 2kb. This threshold is configurable with mix config:
+
+      config :brady, inline_threshold: 10_240
+
+  Ex:
+      Brady.data_uri("placeholder.gif")
+      # => "data:image/gif;base64,iVBORw0KGgoAAAA"
+  """
+  def data_uri(path) do
+    app_dir = Application.app_dir(Application.get_env(:brady, :otp_app))
+    base64 =
+      [app_dir, "priv/static", path]
+      |> Path.join()
+      |> Path.expand()
+      |> File.read!()
+      |> Base.encode64()
+      |> maybe_warn_about_size(path)
+
+    mime = MIME.from_path(path)
+
+    "data:#{mime};base64,#{base64}"
+  end
+
+  defp maybe_warn_about_size(base64, path) do
+    limit = Application.get_env(:brady, :inline_threshold, 2048)
+
+    if String.length(base64) > limit do
+      Logger.warn("""
+      Warning: The file "#{path}" is large and not recommended for inlining in templates. Please reconsider inlining this image, or increase the inline threshold by setting:
+
+      config :brady, inline_threshold: size_in_bytes
+      """)
+    end
+
+    base64
   end
 
   defp render_with_options(markup, []), do: {:safe, markup}
