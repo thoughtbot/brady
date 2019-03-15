@@ -5,6 +5,7 @@
   "mime": {:hex, :mime, "1.3.1", "30ce04ab3175b6ad0bdce0035cba77bba68b813d523d1aac73d9781b4d193cf8", [:mix], [], "hexpm"},
   "mochiweb": {:hex, :mochiweb, "2.15.0", "e1daac474df07651e5d17cc1e642c4069c7850dc4508d3db7263a0651330aacc", [:rebar3], []},
   "phoenix": {:hex, :phoenix, "1.2.0", "1bdeb99c254f4c534cdf98fd201dede682297ccc62fcac5d57a2627c3b6681fb", [:mix], [{:cowboy, "~> 1.0", [repo: "hexpm", hex: :cowboy, optional: true]}, {:phoenix_pubsub, "~> 1.0", [repo: "hexpm", hex: :phoenix_pubsub, optional: false]}, {:plug, "~> 1.1", [repo: "hexpm", hex: :plug, optional: false]}, {:poison, "~> 1.5 or ~> 2.0", [repo: "hexpm", hex: :poison, optional: false]}], "hexpm"},
+  "phoenix_html": {:hex, :phoenix_html, "2.10.5", "4f9df6b0fb7422a9440a73182a566cb9cbe0e3ffe8884ef9337ccf284fc1ef0a", [:mix], [{:plug, "~> 1.0", [hex: :plug, repo: "hexpm", optional: false]}], "hexpm"},
   "phoenix_pubsub": {:hex, :phoenix_pubsub, "1.0.0", "c31af4be22afeeebfaf246592778c8c840e5a1ddc7ca87610c41ccfb160c2c57", [:mix], [], "hexpm"},
   "plug": {:hex, :plug, "1.1.6", "8927e4028433fcb859e000b9389ee9c37c80eb28378eeeea31b0273350bf668b", [:mix], [{:cowboy, "~> 1.0", [repo: "hexpm", hex: :cowboy, optional: true]}], "hexpm"},
   "poison": {:hex, :poison, "2.2.0", "4763b69a8a77bd77d26f477d196428b741261a761257ff1cf92753a0d4d24a63", [:mix], [], "hexpm"},

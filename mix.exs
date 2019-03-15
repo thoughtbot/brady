@@ -24,7 +24,9 @@ defmodule Brady.Mixfile do
       {:ex_doc, "~> 0.11", only: :dev},
       {:floki, "~> 0.13"},
       {:mime, "~> 1.2"},
-      {:phoenix, "~> 1.2"}
+      {:phoenix, "~> 1.2"},
+      {:phoenix_html, "~> 2.0"}
+      # TODO WHY SO HARD
     ]
   end
 

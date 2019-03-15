@@ -9,6 +9,44 @@ defmodule BradyTest do
     Application.put_env(:brady, :svg_path, "../../../../test/support/svg")
   end
 
+  describe "picture_tag/1" do
+    test "returns a <picture> tag with a placeholder" do
+      html =
+        [placeholder: "test.png"]
+        |> Brady.picture_tag()
+        |> Phoenix.HTML.safe_to_string()
+
+      assert html == ~s|<picture><img src="test.png"></picture>|
+    end
+
+    test "passes options down to fallback image" do
+      html =
+        [class: "foo", placeholder: "test.png", id: "bla"]
+        |> Brady.picture_tag()
+        |> Phoenix.HTML.safe_to_string()
+
+      assert html == ~s|<picture><img class="foo" id="bla" src="test.png"></picture>|
+    end
+
+    test "creates source tags for each given source" do
+      html =
+        [placeholder: "test.png", sources: ["bla.png"]]
+        |> Brady.picture_tag()
+        |> Phoenix.HTML.safe_to_string()
+
+      assert html == ~s|<picture><source srcset="bla.png"></source><img src="test.png"></picture>|
+    end
+
+    test "creates source tags for each given sources" do
+      html =
+        [placeholder: "test.png", sources: ["bla1.png", "bla2.png"]]
+        |> Brady.picture_tag()
+        |> Phoenix.HTML.safe_to_string()
+
+      assert html == ~s|<picture><source srcset="bla1.png"></source><source srcset="bla2.png"></source><img src="test.png"></picture>|
+    end
+  end
+
   test "body_class returns controller and action" do
     conn = %Conn{
       private: %{

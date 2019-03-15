@@ -21,6 +21,21 @@ defmodule Brady do
     ""
   end
 
+  @spec picture_tag(Keyword.t()) :: Phoenix.HTML.Tag.t()
+  def picture_tag(options \\ []) do
+    {fallback_src, options} = Keyword.pop(options, :placeholder)
+    {sources, options} = Keyword.pop(options, :sources, [])
+    fallback_img = Phoenix.HTML.Tag.img_tag(fallback_src, options)
+    sources = Enum.map(sources, fn source ->
+      Phoenix.HTML.Tag.content_tag(:source, nil, srcset: source)
+    end)
+    values = [sources | [fallback_img]]
+
+    Phoenix.HTML.Tag.content_tag :picture, [] do
+      values
+    end
+  end
+
   @doc """
   Embeds an html safe raw SVG in the markup. Also takes an optional list of CSS
   attributes and applies those to the SVG.
