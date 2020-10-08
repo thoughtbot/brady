@@ -81,7 +81,7 @@ defmodule Brady do
   defp render_with_options(markup, []), do: {:safe, markup}
   defp render_with_options(markup, options) do
     markup
-    |> Floki.parse_fragment!()
+    |> Floki.parse_fragment()
     |> Floki.find("svg")
     |> add_attributes(options)
     |> Floki.raw_html
