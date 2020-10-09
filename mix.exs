@@ -10,7 +10,7 @@ defmodule Brady.Mixfile do
       elixir: "~> 1.3",
       package: package(),
       start_permanent: Mix.env == :prod,
-      version: "0.0.7",
+      version: "0.0.8",
     ]
   end
 
