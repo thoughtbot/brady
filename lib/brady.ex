@@ -30,7 +30,7 @@ defmodule Brady do
       {:safe,
        "<svg class=\"foo\" data-role=\"bar\" height=\"100\" width=\"100\"><desc>This is a test svg</desc><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"black\" stroke-width=\"3\" fill=\"red\"></circle></svg>"}
   """
-  @spec inline_svg(String.t, keyword) :: String.t
+  @spec inline_svg(String.t, keyword) :: {:safe, String.t}
   def inline_svg(file_name, options \\ []) do
     path = static_path(file_name)
     case File.read(path) do
@@ -90,7 +90,7 @@ defmodule Brady do
 
   defp add_attributes([{tag_name, existing_attributes, contents}], attributes) do
     attributes = Enum.map(attributes, fn{key, value} -> {to_string(key), value} end)
-    {tag_name, attributes ++ existing_attributes, contents}
+    [{tag_name, attributes ++ existing_attributes, contents}]
   end
 
   defp static_path(file_name) do
