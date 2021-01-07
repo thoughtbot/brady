@@ -13,7 +13,7 @@ Add brady to your list of dependencies in `mix.exs`:
 ```elixir
   def deps do
     [
-      {:brady, "~> 0.0.9"},
+      {:brady, "~> 0.0.10"},
     ]
   end
 ```

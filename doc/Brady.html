@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.11.4">
-    <title>Brady – brady v0.0.9</title>
+    <title>Brady – brady v0.0.10</title>
     <link rel="stylesheet" href="dist/app-1e374caa3d.css" />
     <script src="dist/sidebar_items.js"></script>
   </head>
@@ -27,7 +27,7 @@
         brady
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.0.9
+        v0.0.10
       </h2>
     </div>
     
@@ -59,7 +59,7 @@
 
 
       <h1>
-        <small class="visible-xs">brady v0.0.9</small>
+        <small class="visible-xs">brady v0.0.10</small>
         Brady
         
         
@@ -84,11 +84,21 @@
     </h2>
     <div class="summary-row">
   <div class="summary-signature">
-    <a href="#body_class/1">body_class(arg1)</a>
+    <a href="#body_class/1">body_class(conn)</a>
   </div>
   
     <div class="summary-synopsis"><p>Returns the controller name and controller-action name as a lowercase,
 dasherized string</p>
+</div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#data_uri/1">data_uri(path)</a>
+  </div>
+  
+    <div class="summary-synopsis"><p>Encodes an image to base64-encoded data uri, compatible for img src attributes. Only recommended
+for files less than 2kb. This threshold is configurable with mix config</p>
 </div>
   
 </div>
@@ -128,7 +138,7 @@ attributes and applies those to the SVG</p>
     <a href="#body_class/1" class="detail-link" title="Link to this function">
       <i class="icon-link"></i>
     </a>
-    <span class="signature">body_class(arg1)</span>
+    <span class="signature">body_class(conn)</span>
       
   </div>
   
@@ -149,6 +159,25 @@ dasherized string.</p>
 
   </section>
 </div>
+<div class="detail" id="data_uri/1">
+  <div class="detail-header">
+    <a href="#data_uri/1" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">data_uri(path)</span>
+      
+  </div>
+  
+  <section class="docstring">
+    <p>Encodes an image to base64-encoded data uri, compatible for img src attributes. Only recommended
+for files less than 2kb. This threshold is configurable with mix config:</p>
+<pre><code class="elixir">config :brady, inline_threshold: 10_240</code></pre>
+<p>Ex:</p>
+<pre><code class="elixir">Brady.data_uri(&quot;placeholder.gif&quot;)
+# =&gt; &quot;data:image/gif;base64,iVBORw0KGgoAAAA&quot;</code></pre>
+
+  </section>
+</div>
 <div class="detail" id="inline_svg/2">
   <div class="detail-header">
     <a href="#inline_svg/2" class="detail-link" title="Link to this function">
@@ -162,7 +191,7 @@ dasherized string.</p>
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">inline_svg(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, keyword) :: <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a></code></pre>
+          <pre><code class="elixir">inline_svg(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, keyword) :: {:safe, <a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>}</code></pre>
         
       </div>
     </div>

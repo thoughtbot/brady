@@ -1,1 +1,1 @@
-sidebarNodes={"exceptions":[],"extras":[{"id":"api-reference","title":"API Reference","headers":[]}],"modules":[{"id":"Brady","title":"Brady","functions":[{"id":"body_class/1","anchor":"body_class/1"},{"id":"inline_svg/2","anchor":"inline_svg/2"}]}],"protocols":[]}
+sidebarNodes={"exceptions":[],"extras":[{"id":"api-reference","title":"API Reference","headers":[]}],"modules":[{"id":"Brady","title":"Brady","functions":[{"id":"body_class/1","anchor":"body_class/1"},{"id":"data_uri/1","anchor":"data_uri/1"},{"id":"inline_svg/2","anchor":"inline_svg/2"}]}],"protocols":[]}
